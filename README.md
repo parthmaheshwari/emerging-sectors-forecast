@@ -10,8 +10,8 @@ Our project aims to provide a robust framework for forecasting funding flows in 
 
 [Team](static/Teams.md)
 
-Updates
+[Updates](static/Updates.md)
 
-Tutorials/Examples
+[Tutorials/Examples](static/Tutorials.md)
 
 
