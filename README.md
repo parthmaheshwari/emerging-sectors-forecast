@@ -1,7 +1,7 @@
 # Predicting Funding Flows in Public and Private Markets
 
 ## Overview
-This GitHub repository contains the culmination of months of intensive research, analysis, and collaboration by a team of four dedicated students pursuing their Master of Science in Data Science at Michigan State University. Under the expert guidance of Professor Mohammad Ghassemi, this capstone project delves into the complex realm of predicting funding flows in both public and private markets, leveraging time series analysis and natural language processing (NLP) techniques.
+This GitHub repository contains the culmination of months of intensive research, analysis, and collaboration by a team of four students pursuing their Master of Science in Data Science at Michigan State University under the expert guidance of Professor Mohammad Ghassemi.
 
 ## Project Description
 The world of finance is characterized by ever-shifting dynamics, where investors and decision-makers strive to anticipate market trends and make informed decisions. Predicting funding flows is a critical aspect of this process, as it can offer invaluable insights into market sentiment, economic conditions, and investment opportunities.
