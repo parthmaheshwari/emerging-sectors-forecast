@@ -6,7 +6,7 @@ Predicting Funding Flows in Public and Private Markets.
 ## Project Supervisor
 
 ### Professor Mohammad M. Ghassemi
-- **Department**: [Computer Science & Engineering]
+- **Department**: Computer Science & Engineering
 - **Email**: [ghassem3@msu.edu](mailto:ghassem3@msu.edu)
 - **Biography**: 
 
