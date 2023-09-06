@@ -1,7 +1,6 @@
 ## Project Team
 
-Leveraging the power of large language models for data extraction from scientific publications.
-
+Predicting Funding Flows in Public and Private Markets.
 ---
 
 ## Project Supervisor
