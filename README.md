@@ -8,7 +8,8 @@ The world of finance is characterized by ever-shifting dynamics, where investors
 
 Our project aims to provide a robust framework for forecasting funding flows in public and private markets by harnessing the power of data science, time series analysis, and NLP. We understand that predicting funding flows is a challenging task due to the multifaceted nature of market data and the influence of external factors. However, we believe that a combination of advanced data analysis and machine learning techniques can help us make significant strides in this domain.
 
-
-
+[Team](cse890-capstone/static/Teams.md)
+Updates
+Tutorials/Examples
 
 
