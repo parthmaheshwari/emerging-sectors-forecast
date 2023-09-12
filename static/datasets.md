@@ -10,6 +10,6 @@ This page contains the information about the explored datasets for the project.
 | Pitchbook | Financial-Private | 2.1M Deals | https://pitchbook.com/data | Dynamic | NA | Closed-Access Requested | Expensive (as per some quotes, $8k+) | - | 
 | Coresignal | Financial-Private | 16.8M deals | https://dashboard.coresignal.com/pricing | Dynamic | Name, Last funding date, Last funding type, Last funding raised, Acquisition price | Closed-Freemium | 200 rows free | Expensive, $0.2/row |
 | yfinance | Financial-Public | Stocks,ETF,Indices,Mutual Funds,FOREX & more | https://pypi.org/project/yfinance/ | Dynamic | Ndatetime, open, high, low, close, adjClose, volume,Operational data,Ownership,Fundamental Data(Finance Statement,Dividends etc.) | Open | No Restrictions(Cons-Unofficial Library) | Made 7,000 API calls to retrieve and saved data from January 2000 to September 10, 2023, using a ticker list sourced from Kaggle |
-| Eikon API | Financial-Private |  | https://dashboard.coresignal.com/pricing | Dynamic | Name, Last funding date, Last funding type, Last funding raised, Acquisition price | Closed |   |  |
+| Refinitive Workspace | Financial-Private | NA | [https://dashboard.coresignal.com/pricing](https://www.refinitiv.com/en) | Dynamic | Name, Last funding date, Last funding type, Last funding raised, Acquisition price | Closed(Allowed via MSU) | Allows export upto 100000 rows at a time |  |
 
 
