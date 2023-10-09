@@ -1,0 +1,35 @@
+Minutes of Meeting
+Meeting Date: 09/20/2023
+Time: 4:30 pm
+Location: Zoom
+
+Agenda:
+
+Meeting for Next Week -The meeting scheduled for next week has been rescheduled to Tuesday at 4:00 PM.
+Update on Crunchbase Research Dataset - Professor Ghassemi reported that there has been no response from Crunchbase regarding their research dataset.
+
+Updates and Limitations in Datasets -Nithya and Parth shared updates on their dataset research: Parth examined datasets from CB Insights, Privco, and Angelist. Nithya explored data from Crossref. Both highlighted limitations in the datasets they reviewed.
+
+Discussion on Semantic Scholar Dataset - Kuldeep discussed the Semantic Scholar dataset and identified important attributes: Field of study, Influential citations, and Prominence of authors
+
+Utilizing the Number of Companies Founded and Patents per Sector - The team discussed the possibility of leveraging the number of companies founded and patents per sector as dataset attributes.
+
+Data Warehouse Discussion - Professor Ghassemi initiated a discussion on data storage, as HPCC is not a viable long-term option for data warehousing. Parth is researching potential data warehouse options, and the findings will be discussed and finalized next week.
+
+Exploration of Additional Dataset Attributes - The team was tasked with exploring additional attributes in the datasets that could be potentially useful. Vishal and Nithya will explore attributes in the Semantic Scholar dataset. Parth and Vishal will conduct a similar exploration of the financial datasets.
+
+Dataset Length Discussion - The team discussed the length of the financial dataset and the need for preprocessing, such as adjusting for inflation. It was suggested to obtain all available data initially and later truncate the dataset if necessary.
+
+Reconciliation of Datasets - Parth raised concerns regarding the reconciliation of two datasets (financial and research), specifically related to research paper keywords and company sectors. The team discussed the use of topic modeling, taxonomy, and ontology to match keywords (eg. DBpedia). Web scraping for company details was proposed as a potential solution. Parth and Vishal will work on topic modeling, while Kuldeep will explore taxonomy and ontology.
+Action Items:
+
+Nithya to reschedule the meeting for next week to Tuesday at 4:00 PM.
+Team to explore the inclusion of "number of companies founded" and "patents per sector" as dataset attributes.
+Parth to research potential data warehouse options for discussion next week.
+Vishal and Nithya to document and present additional attributes found in the Semantic Scholar dataset.
+Parth and Vishal to explore additional attributes in the financial datasets.
+Team to assess dataset length and preprocessing needs.
+Parth and Vishal to explore topic modeling, while Kuldeep will explore taxonomy and ontology for dataset reconciliation.
+
+Next Meeting: 09/26/2024
+Meeting Adjourned: 5 pm

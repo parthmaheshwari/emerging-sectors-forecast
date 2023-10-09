@@ -1,0 +1,29 @@
+This meeting was cancelled, updates were shared via email.
+
+Kuldeep:
+Updates: Kuldeep has been extensively exploring PMC, ArXiV, and s2orc datasets, including their APIs, and has been updating our datasets page with his findings.
+Next Steps: He plans to obtain access to the s2orc data, initiate bulk downloads, and collaborate with Nithya to determine the research paper schema. Additionally, Kuldeep aims to conduct some basic data analysis on the dataset.
+
+Vishal:
+Updates: Vishal has conducted an in-depth analysis of Refinitive Workspace for private funding data and has also delved into the yfinance library.
+Next Steps: He will work closely with Parth to finalize the financial data this week and proceed with the integration of the financial datasets.
+
+Nithya:
+Updates: Nithya has shared a document on the drive for front-end options.
+Next Steps: Her next focus will be on analyzing the research dataset (Crossref bulk data) from her end.
+
+Parth:
+Updates: Parth has applied for Crunchbase research access with the professor and explored private funding datasets on CBInsights, Privco, and Coresignal, assessing their attributes and limitations. CBInsights has an 8000 rows/user limit. Together as a team, we can fetch 32,000 rows. Privco and Coresignal do not have a bulk download option. Also performed EDA on Angel list dataset.
+Next Steps: He will collaborate with Vishal to perform EDA on prospective datasets and finalize the financial datasets' schema and source by next week.
+
+In addition to these individual updates, we discussed the following during our recent team meeting:
+
+We came across a project similar to ours that examined research trends and identified hot topics for R&D companies and investment firms. Unfortunately, we couldn't locate their project's GitHub repository.
+
+Both Kuldeep and Vishal have identified datasets that could potentially be finalized.
+
+We discussed website generator tools from Nithya's research, all of which are paid tools starting at $10/month. We are still in the process of finalizing the web app architecture.
+
+The Statistics department has provided us with a lead to gain access to computational resources at HPCC. However, they have not provided information regarding financial funding.
+
+We all have updated our datasets on the GitHub repository in a table 

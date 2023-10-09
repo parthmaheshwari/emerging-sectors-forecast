@@ -1,0 +1,73 @@
+Agenda:
+
+Data Warehouse Options
+Financial VC Datasets Insights
+Mapping of Categories
+Public Dataset Attributes
+Mappings Discussion
+Ontology Research
+Common Encoding
+Embedding Space Browsing
+
+Meeting Minutes:
+
+1. Data Warehouse Options
+
+Parth shared his exploration of data warehouse options.
+The team is finalizing Azure's Cosmos DB.
+Professor Ghassemi approved this choice.
+
+2. Financial VC Datasets Insights
+
+Parth and Vishal presented insights from financial VC datasets.
+Important columns for industry classification structure were identified.
+NAICS categories were discussed.
+
+3. Mapping of Categories
+
+Discussion on mapping categories between public and private financial datasets.
+Professor inquired about the level of taxonomization for both.
+The goal is to establish common groupings for public and private companies.
+
+4. Public Dataset Attributes
+
+Nithya and Vishal shared important attributes and schema from the public dataset.
+The "FieldOfStudy" attribute was considered too broad.
+Professor suggested exploring keywords associated with research papers.
+Emphasis on finding a common class structure for financial and academic datasets.
+
+5. Mappings Discussion
+Mappings discussed included Mesh, NAICS, TopicModels, and DBPedia.
+Parth suggested having common topic models for both datasets.
+Professor emphasized the need for thorough testing and sanity checks.
+
+6. Ontology Research
+
+Kuldeep provided updates on ontology research.
+Introduced CSO for Computer Science ontology, a subset of DBpedia.
+Discussed mapping strategies using Regex, Spacy, Fuzzy match, and Levenshtein distances.
+Professor suggested mapping all datasets to DBpedia entities for the highest resolution.
+
+7. Common Encoding
+Professor reiterated the importance of a common encoding.
+Suggested exploring off-the-shelf models.
+Considered improving keyword selection for company abstracts.
+In the absence of off-the-shelf solutions, team should brainstorm potential workarounds in the next meeting.
+
+8. Embedding Space Browsing
+
+Kuldeep will investigate embedding space browsing for DBpedia concepts.
+Proposed calculating distances between noun phrases and DBpedia concepts.
+Suggested optimization using Approximate Nearest Neighbors and FAISS by Meta.
+The professor recommended using vector databases like ChromaDB for efficient execution.
+
+Next Steps:
+
+Finalize Azure Cosmos DB for data warehousing.
+Continue refining industry classification structure with NAICS categories or use company abstracts
+Work on common groupings for public and private financial datasets.
+Explore keywords associated with research papers.
+Focus on mapping all datasets to DBpedia entities.
+Research off-the-shelf encoding models.
+Investigate embedding space browsing with efficient algorithms.
+Prepare potential workarounds for common encoding.
