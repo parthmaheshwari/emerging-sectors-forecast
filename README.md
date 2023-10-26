@@ -52,18 +52,18 @@ We are experimenting with the below methods to create this mapping
 **Basic Plotting** : 
 This step is aimed at visualizing and analyzing trends in both research and financial data over a specified time frame, typically the last 20 years. This is a critical step for gaining insights into the data and understanding the growth patterns in both domains, as well as how they mutually influence each other.
 
-### Key Trends and Plots
+#### Key Trends and Plots
 We generate various trends and plots, including:
 
-**Number of Unique Authors per Field**: This trend examines the number of unique authors in a particular field over the last 20 years, based on the first 30,000 papers.
+1. **Number of Unique Authors per Field**: This trend examines the number of unique authors in a particular field over the last 20 years, based on the first 30,000 papers.
 
-**Number of Computer Science Publications**: This trend focuses on the number of publications in the field of Computer Science over the last 20 years.
+2. **Number of Computer Science Publications**: This trend focuses on the number of publications in the field of Computer Science over the last 20 years.
 
-**Number of Medicine Publications**: This trend tracks the number of publications in the field of Medicine over the last 20 years.
+3. **Number of Medicine Publications**: This trend tracks the number of publications in the field of Medicine over the last 20 years.
 
 We utilize the Matplotlib and Plotly libraries to create interactive visualizations of these trends. Additionally, our plots include a moving average (rolling mean) with window sizes of 5 and 3 for the second and third plots, respectively. This smoothing technique helps to effectively visualize and understand any sudden fluctuations in the trends.
 
-### Dual Trend Analysis
+#### Dual Trend Analysis
 Our analysis goes a step further by presenting a dual trend within a single graph. One trend represents research data, while the other represents financial data. This dual trend visualization enhances our understanding of the interplay and influence between these two domains.
 By examining these trends, we gain valuable insights into the relationship between research and financial data over time, facilitating a more comprehensive understanding of their dynamics and impact on each other.
 
