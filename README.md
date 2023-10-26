@@ -17,8 +17,19 @@ For a comprehensive list of the datasets we have explored and detailed informati
 After conducting a thorough analysis of these datasets, taking into account factors such as feature richness and data update frequency, we have made the strategic decision to primarily utilize S2ORC for academic data, which comprises an extensive collection of research papers. Additionally, we have chosen to incorporate data from Refinitive Workspace to provide comprehensive coverage of the financial domain. The resources used to collect these two datasets are provided in the aforementioned Datasets table.
 
 ### Data Preprocessing
-- @Vishal and @Parth data joining or any inital Steps taken. 
-- Mention about which specific fields are being used from the dataset and their explanation 
+#### Academic Data Preprocessing
+**s2orc** dataset is sourced from Semantic Scholar and provided a comprehensive list of data fields for each academic paper. Below is the list of fields that we selected for this project:
+1. **corpusid** : unique identifier for each paper
+2. **title** : title of the research paper
+3. **abstract** : abstract of the research paper
+4. **fieldsOfStudy** : a list of high level academic categories associated with paper; categorical understanding of the paper's academic domain. For e.g., Computer Science, Biology, Mathematics etc.
+5. **s2FieldsOfStudy** : list of academic categories for each paper, using external or internal classifiers.
+
+For the **abstract** and **title** fields standard preprocessing was applied which involved removing extra whitespaces, urls, numbers and special symbols.
+
+#### Financial Data Preprocessing
+The dataset is sourced from **Refinitive Workspace** and includes a comprehensive financial records of public and private companies. For e.g. funding rounds, etc. Below is the list of fields that we selected for this project :
+1. @parth will provide the details
 
 ## Algorithm
 ### 1. Keyword/Topic/Phrase Identification
@@ -26,7 +37,7 @@ This step focuses on the automatic identification of keywords, topics, and phras
 
 Below are the methods we are experimenting with for this step :  
 1. **Noun Phrase Identification** : Unsupervised noun phrase identification using the Gensim and NLTK libraries. 
-2. **BertTopic** : Using BertTopic package to identify topics using pretrained language models.
+2. **BertTopic** : Using BertTopic package to identify topics using pretrained language models. A detailed detailed explanation of BertTopic is provided at [BertTopic](static/berttopic.md)
 
 ### 2. Cross Domain Topic Mapping
 This step is designed to facilitate the mapping of keywords and topics extracted from academic research papers to the financial domain. By doing so, it empowers researchers and analysts to delve into the intricate relationships between funding flows and ongoing academic research. Through this mapping process, we aim to gain deeper insights into how financial factors intersect with and influence the world of academia.
