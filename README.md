@@ -22,6 +22,7 @@ After conducting a thorough analysis of these datasets, taking into account fact
 ```bash
 python semantic_scholar_data_extraction.py
 
+```
 
 
 Additionally, we have chosen to incorporate data from Refinitive Workspace to provide comprehensive coverage of the financial domain. The resources used to collect these two datasets are provided in the aforementioned Datasets table.
