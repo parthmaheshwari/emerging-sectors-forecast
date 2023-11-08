@@ -10,7 +10,7 @@ from bertopic.representation import KeyBERTInspired
 from bertopic.vectorizers import ClassTfidfTransformer
 
 # Function to merge data for each topic and include years and fill missing values
-def fn(x):
+def fill_missing_years(x):
     """
     Merge data for each topic to include years and fill missing values.
     
@@ -49,6 +49,7 @@ final_dataframe = pd.concat(dfs, ignore_index=True)
 final_dataframe = final_dataframe.drop_duplicates()
 
 # Remove duplicate rows based on all columns except 'Firm Investor Name' and 'Fund Investor Name'
+# this is an important step, to ensure that funding amount is not duplicated across multiple investors
 final_dataframe = final_dataframe.drop_duplicates(subset=final_dataframe.columns.difference(['Firm Investor Name','Fund Investor Name']))
 
 # Load topic data from a CSV file
@@ -76,8 +77,8 @@ merged_df = pd.merge(final_dataframe, topic_df, left_on="Investee Company Name",
 # Convert the "investment_year" column to integers
 merged_df["investment_year"] = merged_df["investment_year"].astype(int)
 
-# Group data by topic and investment year, applying the 'fn' function to each group
-grouped = merged_df.groupby("Topic").apply(fn).reset_index(drop=True)
+# Group data by topic and investment year, applying the 'fill_missing_years' function to each group
+grouped = merged_df.groupby("Topic").apply(fill_missing_years).reset_index(drop=True)
 
 # Group data by 'Topic' and 'investment_year' to calculate the sum of 'Deal Rank Value\n(USD, Millions)' for each group
 sums = grouped['Deal Rank Value\n(USD, Millions)'].sum()

@@ -28,8 +28,20 @@ After conducting a thorough analysis of these datasets, taking into account fact
 For the **abstract** and **title** fields standard preprocessing was applied which involved removing extra whitespaces, urls, numbers and special symbols.
 
 #### Financial Data Preprocessing
-The dataset is sourced from **Refinitive Workspace** and includes a comprehensive financial records of public and private companies. For e.g. funding rounds, etc. Below is the list of fields that we selected for this project :
-1. @parth will provide the details
+The dataset is sourced from **Refinitive Workspace** and includes a comprehensive financial records of public and private companies. For the company details below is the list of fields that we selected for this project :
+
+1. **Investee Company Name** - Name of the company (also the link to investments table)
+2. **Investee Company Nation** - Nation the company is based out of
+3. **Investee Company Founded Date\n('|')** - Date the company was officially founded eg. "1987-01-01 00:00:00"
+4. **Investee Company TRBC Industry Group\n('|')** - TRBC is a market-based classification system. Organizations are assigned an industry on-the-basis of the market they serve rather than the products or services they offer. It has about 62  market categories.
+5. **Investee Company Long Business Description\n('|')** - Long description detailing the work/product and other details of a company.
+6. **Investee Company Short Business Description\n('|')** - Short description detailing the work/product and other details of a company.
+
+For the investment round details below is the list of fields that we selected for this project:
+
+1. **Investee Company Name** - Name of the company (also the link to companies table)
+2. **Investment Date** - Date the investment was made
+3. **Deal Rank Value\n(USD, Millions)** - Amount of Investment made in a round by all investors combined.
 
 ## Algorithm
 ### 1. Keyword/Topic/Phrase Identification
