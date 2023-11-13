@@ -25,6 +25,9 @@ headers = {
     'API_KEY': 'YOUR_API_KEY_HERE'
 }
 
+# Define the path for the semantic_scholar folder
+semantic_scholar_folder = 'Semantic_Scholar'
+
 def extract_file(file_url, file_type, index):
     """
     Generalized file extraction function for various file types from Semantic Scholar.
@@ -36,6 +39,8 @@ def extract_file(file_url, file_type, index):
         os.makedirs(zipped_folder)
     if not os.path.exists(unzipped_folder):
         os.makedirs(unzipped_folder)
+    if not os.path.exists(semantic_scholar_folder):
+        os.makedirs(semantic_scholar_folder)
 
     file_name = os.path.join(zipped_folder, f'{file_type}_{index}.gz')
     
@@ -45,9 +50,9 @@ def extract_file(file_url, file_type, index):
             for chunk in response.iter_content(chunk_size=8192):
                 output.write(chunk)
     
-    # Unzip the gz file and write its contents to a new file
+    # Unzip the gz file and write its contents to a new file in the semantic_scholar folder
     with gzip.open(file_name, 'rb') as f_in:
-        unzipped_file_name = os.path.join(unzipped_folder, f'{file_type}_{index}')
+        unzipped_file_name = os.path.join(semantic_scholar_folder, f'{file_type}_{index}')
         with open(unzipped_file_name, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
 
@@ -77,4 +82,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
