@@ -21,7 +21,7 @@ After conducting a thorough analysis of these datasets, taking into account fact
 
 ```bash
 python semantic_scholar_data_extraction.py
-
+python academic_papers_data_integrator.py 'Computer Science'
 ```
 
 
