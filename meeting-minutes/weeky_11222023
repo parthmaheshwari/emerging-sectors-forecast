@@ -1,0 +1,79 @@
+Nithya : 
+Assigned Task in Previous Week Meeting:
+1. Collaborate with Vishal to acquire and analyze Patent Assignment Economics data from USPTO.gov. This involves identifying attributes related to NBER codes, USPC codes, and DOI information. Additionally, explore lens.org to understand the available data types and their potential connection to patents and scholarly research datasets.
+2. Collaborate with Parth to download the Companies and Investments dataset for all countries from 2011 to 2023 in Refinitiv Workspace. Also, retrieve and perform in-depth data analysis on Firms and Funds data for the years 2020 to 2023.
+
+Completed Tasks:
+1. Explored and analyzed the Patent Assignment Economics data from USPTO, providing Reza with insights into various CSV files, their significance, and relevant columns.
+2. Reza suggested confirming data updates until 2023 for the analysis and consolidating different CSV files related to patent assignees and assignors.
+3. Explored lens.org, explaining its data types (patents, scholarly works, collections) and the common Lens ID linking them.
+4. Downloaded the Companies and Investments dataset for 2011-2023, as well as Firms and Funds data for the years 2020-2023.
+5. Presented the EDA, plots, descriptive statistics from firms and funds, and suggested new attributes for inclusion in the analysis. Reza provided feedback on plot improvements, especially for handling large values in USD millions.
+
+Challenges faced:
+Encountered difficulties when attempting to download Company details from Refinitiv for the year 2020. Per Reza's suggestion, it was recommended to try downloading data for a few months first and then consolidate it for the entire year afterward.
+
+Next steps:
+1. Conduct an in-depth analysis of the Patent Assignment Economics data from USPTO to verify data updates until 2023 and identify trends or relationships.
+2. Combine various datasets within the USPTO economics data into a single CSV file for better consolidation.
+3. Download Firms and Funds data from Refinitiv for the remaining years (2011-2019).
+4. Enhance and create additional plots, particularly focusing on columns with valuable insights.
+5. Collaborate with Parth to evaluate and potentially remove columns with limited value in Firms and Funds compared to Investments.
+
+
+Vishal : 
+Assigned Task in Previous Week Meeting:
+Conduct EDA on USPTO data.
+Integrate and analyze data from Kaggle and Lens.org.
+
+Completed Tasks:
+We finalized various datasets from patient examination research, focusing on NBER codes and USPC classes.
+Reza asked me to integrate 2023 datasets into a single dataset, encompassing application number, patent number, claim text, and other details.
+We planned to examine in detail the differences between the patent_claims_fulltext.csv and pgpub_claims_fulltext.csv
+We will analyze how many USPC subclasses there are on average in each USPC class in the application data and create a box plot for this
+We also discussed checking the publication numbers ('pubno') in lens.org against USPTO data to see if there are any corresponding columns and determine if labels are present.
+
+Next steps:
+I will integrate all the required data and share the Google Drive folder by next week.
+The detailed comparison and analysis of the two datasets, patent_claims_fulltext.csv and pgpub_claims_fulltext.csv, will be a priority
+Completing the box plot analysis for the USPC subclasses.
+Cross-referencing data between lens.org and USPTO to ensure consistency and accuracy.
+
+
+Parth : 
+Assigned Task in Previous Week Meeting:
+Incorporate dashboard improvements based on Reza's feedback.
+Expand the dataset to include more countries and resolve download issues.
+Upload the dataset to Google Drive/GitHub.
+
+Completed Tasks:
+Shared improvements in plots and generated additional statistics+plots suggested by Reza in the last meeting for Refinitiv Investment and Company datasets.
+Performed the same analysis on Investment and Company dataset for all countries. Generated additional plots wrt Country wise investment statistics
+Dataset completion(Companies, Investments) for all countries with Nithya.
+Analysis of additional columns on Firms and Funds with Nithya.
+
+Next steps:
+Upload the complete dataset on Google drive
+Optimize the number of CSV files and the number of columns in each table, since there is an overlap between some tables.
+Additional plots related to all countries
+Firms and Funds dataset completion with Nithya
+
+
+
+Kuldeep : 
+Assigned Task in Previous Week Meeting:
+Advance the application of OpenAlex Concept Tagging on patent data.
+Execute and evaluate model testing experiments.
+
+Completed Tasks:
+Able to run the V2 and V3 versions of the Concept tagging model on local system 
+Explored the setting up of API using AWS Chalice for the concept tagging model
+Went through the extensive documentation on github and google groups on model training and inferencing for OpenAlex
+Tried running the training notebook but apparently they have removed the training data files
+
+Challenges faced:
+Encountered difficulties related to the specific version of keras used by OpenAlex in concept tagging model development. Onley python 3.8 supports that specific version. So had to figure this out. 
+
+Next steps:
+1. Run the model on patents, publications and company description 
+2. Compare the results with Wikifier wikidata tagging
