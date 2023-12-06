@@ -1,0 +1,61 @@
+Agenda:
+
+Parth's Updates
+Professor's Recommendations on Topic Modeling
+Kuldeep's Suggested Experimental Approach
+Final Approach Discussion
+GitHub Repository and Documentation
+Three-Step Approach for GitHub Readme
+Dashboard and Time Series Discussion
+Nithya's Updates
+Vishal's Updates
+
+Meeting Minutes:
+
+1. Parth's Updates:
+
+Parth shared his recent progress, which includes:
+a. Extracted research topics from companies using GPT3.5.
+b. Shared a company dataset from Crunchbase, containing website text and descriptions for over 2 million companies.
+c. Extracted website text for ChatGPT input to enhance category creation.
+Professor expressed concern about potential scalability issues with GPT and questioned whether GPT 3.5 could understand ontologies for research and financial topic mapping.
+Kuldeep demonstrated the use of DBpedia lookup as a follow-up step for ontology mapping.
+
+2. Professor's Recommendations on Topic Modeling:
+The professor advised looking up open-source topic models on Paperwithcode and Github.
+Suggested employing parallel computing to expedite the topic modeling process.
+3. Kuldeep's Suggested Experimental Approach:
+Kuldeep introduced alternative open-source models like Top2Vec and Bertopic, proposing an experimental approach to train a topic model using 100,000 research papers for each category.
+4. Final Approach Discussion:
+Professor recommended proceeding with a final approach and presenting the results in the next meeting.
+5. GitHub Repository and Documentation:
+
+Professor suggested uploading scripts to a GitHub repository.
+The repository should be presented weekly to track changes.
+Highlight the datasets used in the repository.
+Utilize GitLFS for dataset access.
+Highlight the specific columns to be used.
+6. Three-Step Approach for GitHub Readme:
+Professor recommended structuring the GitHub readme with three sections: Data, Algorithms, and Visualization/Results.
+7. Dashboard and Time Series Discussion:
+Kuldeep summarized the current plan as Text -> Topic -> DBpedia concepts.
+Professor emphasized the goal of creating a dashboard with multiple time series.
+Discussed the challenge of incorporating financial data as time series, with Parth noting that investment rounds are already available as time series data.
+8. Nithya's Updates:
+
+Nithya explored topic models such as LDA, LSA, and Top2vec.
+Professor suggested that Top2Vec should be considered a potential "nuclear option" and recommended exploring pre-trained models available on paperswithcode.
+9. Vishal's Updates:
+
+Vishal attempted to extract keywords from 7 million abstracts, with only one thousand papers having keywords.
+He encountered missing field of study in 2 million papers.
+Vishal used NAIC codes and semantic matching with a basic BERT model.
+Professor suggested a more detailed discussion of this approach in the next meeting.
+
+Action Items:
+
+Parth: Investigate Topic models to extract topics from financial data
+Kuldeep, Nithya: Look into paperswithcode for pre-trained topic models
+All: Consider finalizing the approach for topic modeling.
+All: Collaborate on GitHub repository setup and documentation.
+Vishal: Prepare a more detailed presentation of the semantic matching approach.
