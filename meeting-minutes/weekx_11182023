@@ -1,0 +1,53 @@
+Meeting Notes
+
+Updates:
+
+Nithya:
+Investigated data retrieval options from CB Insights; no bulk download or API available.
+Data access via the MSU network has limitations.
+Reviewed Pitchbook and PrivCo for alternative data sources.
+Discussed the use of Refinitive Workspace with Reza.
+Proposed workload division with Parth for efficiency.
+
+Vishal:
+Explored USPTO datasets with Reza, focusing on the Patent Examination Research Dataset.
+Aims to analyze patent application abstracts, authors, DOIs, and NBER codes.
+Special attention on decoding NBER numerical codes.
+Plans to use Kaggle dataset for comparative analysis.
+Will use Lens.org data for cross-verification and supplementary analysis.
+Scheduled to conduct Exploratory Data Analysis (EDA) on USPTO data.
+
+Parth:
+Presented the Financial dataset from Refinitiv Workspace to Reza.
+Guided Reza on dataset access and explained dataset details.
+Showed investment trends and company classifications.
+Received feedback for dashboard improvements and exploring additional dataset columns.
+Tasked with completing the dataset for other countries and resolving download constraints.
+Plans to upload the dataset to Google Drive or GitHub for accessibility.
+
+
+Kuldeep:
+Presented the Ontology and Concept Tagging pipeline in OpenAlex.
+Discussed challenges in applying OpenAlex Concept Tagging to diverse text domains.
+Focused on adapting concept tagging models for patent data.
+Plans to run experiments to test model outputs.
+
+
+Action Items for Next Meeting:
+
+Nithya:
+Continue collaborating with Vishal and Parth on data analysis.
+Await Reza's update on Crunchbase dataset access.
+
+Vishal:
+Conduct EDA on USPTO data.
+Integrate and analyze data from Kaggle and Lens.org.
+
+Parth:
+Incorporate dashboard improvements based on Reza's feedback.
+Expand the dataset to include more countries and resolve download issues.
+Upload the dataset to Google Drive/GitHub.
+
+Kuldeep:
+Advance the application of OpenAlex Concept Tagging on patent data.
+Execute and evaluate model testing experiments.

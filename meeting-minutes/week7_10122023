@@ -1,0 +1,43 @@
+Agenda:
+
+Updates on concept linking and research progress.
+Updates on BERTopic and its application.
+Progress on concept linking in financial datasets.
+Discussion on separate and common meetings.
+Finalizing mapping strategies and sharing methodologies.
+
+Meeting Minutes:
+
+
+1. Updates on Concept Linking (Kuldeep):
+Kuldeep presented his updates on concept linking. He discussed clubbing multiple representations into a single research area using GPT 3.5.
+He mentioned the one-to-many relationship between Finance topics and various Research topics.
+Professor's feedback suggested using existing many-to-one mappings like MESH, Wikidata, etc.
+Kuldeep shared his next steps, which involve performing trend analysis on a subset of data.
+
+2. Updates on BERTopic (Vishal):
+
+Vishal shared his updates and results on the application of BERTopic to the research dataset.
+He discussed his next steps, which include preprocessing research abstracts by removing stop words and retraining.
+Professor suggested rapid experimentation and exploring other topic models if necessary.
+Vishal also shared his progress on querying DBPedia for concept normalization and was advised to use a local endpoint to avoid throttling.
+
+3. Updates on BERTopic in Financial Dataset (Parth):
+Parth shared his updates on applying BERTopic to the financial dataset.
+He discussed a concept linking method using the existing topics in the financial data topic model.
+Parth emphasized the need to reduce outliers in concept linking and shared his next steps, including preprocessing financial company descriptions by removing stop words, performing NER to eliminate names and organizations, followed by retraining.
+The team agreed to finalize one of the approaches to concept linking by the next week.
+
+4. Separate and Common Meetings (Kuldeep):
+Kuldeep suggested having a separate meeting with Reza. Professor agreed to this and added that ideally, all team members should have a common meeting.
+
+5. Finalizing Mapping Strategy (Nithya):
+Nithya shared her updates, explaining that she followed the same process for all research topics, not just computer science.
+Professor emphasized the importance of finalizing the mapping strategy.
+He requested the team to share the discussion and methodology used to finalize the mapping on GitHub.
+
+Action Items:
+Kuldeep to use his approach with preprocessed data
+Vishal and Parth to proceed with preprocessing and retraining
+Team to to finalize the concept linking approach for financial data.
+Team to share the mapping discussion and methodology on GitHub.
