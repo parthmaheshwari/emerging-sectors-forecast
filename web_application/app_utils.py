@@ -14,24 +14,24 @@ import plotly.graph_objs as go
 
 
 # loading concepts used in academic for effecient query
-ALL_ACADEMIC_CONCEPTS_IDS = set([i.strip() for i in open('all_academic_concept_ids.txt').readlines()])
+ALL_ACADEMIC_CONCEPTS_IDS = set([i.strip() for i in open('../data/all_academic_concept_ids.txt').readlines()])
 
 # loading concepts used in finance for effecient query
-ALL_FINANCE_CONCEPTS_IDS = set([i.strip() for i in open('all_finance_openalex_concept_ids.txt').readlines()])
+ALL_FINANCE_CONCEPTS_IDS = set([i.strip() for i in open('../data/all_finance_openalex_concept_ids.txt').readlines()])
 
 
-CONCEPTID2NAME = json.load(open('openalex_concept_id_to_name_mapping.json', 'r'))
+CONCEPTID2NAME = json.load(open('../data/openalex_concept_id_to_name_mapping.json', 'r'))
 CONCEPTNAME2ID = {
     i: j
     for j, i in CONCEPTID2NAME.items()
 }
 
-CONCEPTID2CHILDIDS = json.load(open('openalex_parent_to_children_mapping.json', 'r'))
+CONCEPTID2CHILDIDS = json.load(open('../data/openalex_parent_to_children_mapping.json', 'r'))
 
-SUGGESTIONS_FOR_INPUT = [i.strip() for i in open('all_good_suggestions.txt', 'r').readlines()]
+SUGGESTIONS_FOR_INPUT = [i.strip() for i in open('../data/all_good_suggestions.txt', 'r').readlines()]
 
-AZURE_FINANCE_SETTINGS = json.load(open('azure_api_details_finance.json', 'r'))
-AZURE_ACADEMIC_SETTINGS = json.load(open('azure_api_details_academic.json', 'r'))
+AZURE_FINANCE_SETTINGS = json.load(open('../data/azure_api_details_finance.json', 'r'))
+AZURE_ACADEMIC_SETTINGS = json.load(open('../data/azure_api_details_academic.json', 'r'))
 
 
 
