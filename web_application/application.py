@@ -99,12 +99,12 @@ text = st.text_area(
 # expanding concepts
 # Getting the required ids 
 input_concept_ids = [CONCEPTNAME2ID[i] for i in input_concept_names]
-
+# print('INPUT Concept Ids : {}'.format(input_concept_ids))
 concept_ids_to_be_used_for_querying = depth_first_search_to_get_all_children_concepts(
     input_concept_id_list=input_concept_ids,
     conceptid2childids=CONCEPTID2CHILDIDS
 )
-
+# print('Expanded concepts : {}'.format(concept_ids_to_be_used_for_querying))
 text2 = st.text_area(
     "Below are the {} expanded concepts".format(len(concept_ids_to_be_used_for_querying)),
     ', '.join([CONCEPTID2NAME[i] for i in concept_ids_to_be_used_for_querying])

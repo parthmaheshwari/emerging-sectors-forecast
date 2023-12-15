@@ -79,8 +79,7 @@ def depth_first_search_to_get_all_children_concepts(input_concept_id_list, conce
 
 def get_finance_data(concept_id_list, container_companies, container_investments):
 
-    concept_id_list = list(set(concept_id_list).intersection(ALL_FINANCE_CONCEPTS_IDS))
-    print(concept_id_list)
+    # concept_id_list = list(set(concept_id_list).intersection(ALL_FINANCE_CONCEPTS_IDS))
     company_conditions = " OR ".join([f"ARRAY_CONTAINS(c.openalex_concept_ids, {int(concept_id)})" for concept_id in concept_id_list])
     company_query = f"""
         SELECT c.id as id,
