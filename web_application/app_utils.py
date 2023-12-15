@@ -28,7 +28,7 @@ CONCEPTNAME2ID = {
 
 CONCEPTID2CHILDIDS = json.load(open('../data/openalex_parent_to_children_mapping.json', 'r'))
 
-SUGGESTIONS_FOR_INPUT = [i.strip() for i in open('../data/all_good_suggestions.txt', 'r').readlines()]
+SUGGESTIONS_FOR_INPUT = [i.strip() for i in list(CONCEPTNAME2ID.keys())] #[i.strip() for i in open('../data/all_good_suggestions.txt', 'r').readlines()]
 
 AZURE_FINANCE_SETTINGS = json.load(open('../data/azure_api_details_finance.json', 'r'))
 AZURE_ACADEMIC_SETTINGS = json.load(open('../data/azure_api_details_academic.json', 'r'))
@@ -80,7 +80,7 @@ def depth_first_search_to_get_all_children_concepts(input_concept_id_list, conce
 def get_finance_data(concept_id_list, container_companies, container_investments):
 
     concept_id_list = list(set(concept_id_list).intersection(ALL_FINANCE_CONCEPTS_IDS))
-
+    print(concept_id_list)
     company_conditions = " OR ".join([f"ARRAY_CONTAINS(c.openalex_concept_ids, {int(concept_id)})" for concept_id in concept_id_list])
     company_query = f"""
         SELECT c.id as id,
