@@ -117,6 +117,14 @@ def get_finance_data(concept_id_list, container_companies, container_investments
             enable_cross_partition_query=True
         ))
     else:
+        company_items = [
+            {
+                'id': '',
+                'company_name': '',
+                'company_ids': '',
+                'openalex_concepts': ''
+            }
+        ]
         investment_items = [
             {
                 'year': 2021,
