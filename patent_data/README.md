@@ -1,1 +1,0 @@
-# Extracting patent data
