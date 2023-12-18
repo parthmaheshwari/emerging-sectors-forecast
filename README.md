@@ -14,18 +14,7 @@ We have collected data from various sources encompassing both open and proprieta
 
 For a comprehensive list of the datasets we have explored and detailed information about their features, please refer to the table available in [Datasets](static/datasets.md).
 
-After conducting a thorough analysis of these datasets, taking into account factors such as feature richness and data update frequency, we have made the strategic decision to primarily utilize S2ORC for academic data, which comprises an extensive collection of research papers.To facilitate the collection of academic data from S2ORC, we have developed a Python script that uses concurrent processing for efficient data extraction.
-
-1. Obtain a Semantic Scholar API key and replace `'YOUR_API_KEY_HERE'` with your actual API key in the script.
-2. Run the script in your terminal:
-
-```bash
-python semantic_scholar_data_extraction.py
-python academic_papers_data_integrator.py 'Computer Science'
-```
-
-
-Additionally, we have chosen to incorporate data from Refinitive Workspace to provide comprehensive coverage of the financial domain. The resources used to collect these two datasets are provided in the aforementioned Datasets table.
+After conducting a thorough analysis of these datasets, taking into account factors such as feature richness and data update frequency, we have made the strategic decision to primarily utilize S2ORC for academic data, which comprises an extensive collection of research papers. Additionally, we have chosen to incorporate data from Refinitive Workspace to provide comprehensive coverage of the financial domain. The resources used to collect these two datasets are provided in the aforementioned Datasets table.
 
 ### Data Preprocessing
 #### Academic Data Preprocessing
