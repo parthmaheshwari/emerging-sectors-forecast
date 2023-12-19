@@ -13,6 +13,8 @@ Below are the detailed steps of the process
     3. We search for these concepts in our data and any document which has any of these concepts serves as a relevant document for our usecase. 
 
 ## Scripts Descriptions
-1. Concept Tagging
-    - For tagging concepts we first deploy the openalex-concept-tagger V3 model on our local/server machine. The steps and the script are mentioned in the folder openalex-concept-tagging .
-    - the script tag_concepts_finance.py takes in a jsonl file path and batch_size as input arguments. 
+All the scripts work on a list of json files. 
+1. concept_tagging_utilities.py : has all the requred functions to get concepts tagged from openalex concept tagger
+2. concept_tagging_academic_data.py : this script is used to tag concepts on academic data. It uses "corpusid" as the unique document identifier by default. It also used title and abstract from the documents to get the concepts.
+3. concept_tagging_patent_data.py : this script is used to tag concepts to patent data. It uses a "created_unque_id" as a unique document identifier. Moreover, for concept tagging it uses 'invention-title' and 'abstract' fields.
+4. concept_tagging_finance_data.py : this script is used for tagging concepts in finance data. The finance data is in a pandas dataframe so first it should be converted to a jsonl file. Each jsonl object should have unique identifier key, short_description and long_description keys.
