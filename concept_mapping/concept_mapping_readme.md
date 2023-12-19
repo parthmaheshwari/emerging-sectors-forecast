@@ -29,4 +29,13 @@ It is derived from MAG and consists of 65K concepts divided into 6 levels. Level
 
 
 ### OpenAlex Concepts Tagging
-For concept tagging OpenAlex has provided a scalable solution that can be deployed using AWS or on a local machine. More details in the ontology_based sub folder.
+For concept tagging OpenAlex has provided a scalable solution that can be deployed using AWS or on a local machine. More details in the ontology_based sub folder. The steps for setting up the tagger or local are mentioned below:
+1. Clone the [OpenAlex ConcepTagger Github](https://github.com/ourresearch/openalex-concept-tagging) and go in the cloned repo. 
+2. Download the model artifacts using 
+```python
+aws s3 cp s3://openalex-concept-tagger-model-files/ . --recursive
+```
+  3. Follow the this [link](https://github.com/ourresearch/openalex-concept-tagging/tree/main/V3) to download and set up open alex concept tagger.
+  4. Create a separate folder "V3" inside "V3/003_Deploy/model_to_api/container/" for saving the model weights and vocabularies.
+  5. Download and set up the required conda environment [py38_with_gpu](https://drive.google.com/file/d/1zsDwyl6WydDjcxWTZcEXJOq9iT7zGPtA/view?usp=sharing) or [py38_without_gpu](https://drive.google.com/file/d/1kVPZ93j_XiZUvUsZ9TBiQqi7fvzasSg3/view?usp=sharing)
+  6. Run the predictor script at V3/003_Deploy/model_to_api/container/mag_model/predictor.py
