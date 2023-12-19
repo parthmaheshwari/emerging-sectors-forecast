@@ -23,7 +23,7 @@ from bertopic.vectorizers import ClassTfidfTransformer
 from bertopic.representation import KeyBERTInspired
 
 # Import text preprocessing functions 
-from preprocessing.research_data_processing import preprocess_abstracts, is_english_fasttext
+from preprocessing.academic_preprocessing import preprocess_abstracts, is_english_fasttext
 
 # Load the dataset of academic papers
 cse_data = json.load(open('computer_science_papers_integrated_data.json', 'r'))
