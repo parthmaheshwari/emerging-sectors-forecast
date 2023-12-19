@@ -1,4 +1,4 @@
-# Patent Data Processing Project
+# Patent Data
 
 This folder contains scripts for downloading and processing granted patent data from the United States Patent and Trademark Office (USPTO) for the years 2005 to 2023.
 
