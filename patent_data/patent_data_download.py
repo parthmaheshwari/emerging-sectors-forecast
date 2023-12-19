@@ -11,7 +11,7 @@ def generate_file_names(start_year, end_year):
     file_names = []
     for year in range(start_year, end_year + 1):
         start_date = datetime.date(year, 1, 1)
-        days_to_tuesday = (1 - start_date.weekday() + 7) % 7  # 1 is Tuesday
+        days_to_tuesday = (1 - start_date.weekday() + 7) % 7 
         tuesday = start_date + datetime.timedelta(days=days_to_tuesday)
 
         # Iterate through all Tuesdays of the year
@@ -56,12 +56,17 @@ with ThreadPoolExecutor(max_workers=30) as executor:
 
 # List of files that encountered errors during download
 error_files = [
-    # (List of error files)
+
 ]
 
 # Downloading error files
+print("Attempting to download files that encountered errors...")
 for file in tqdm(error_files):
-    download_file(file)
+    try:
+        download_file(file)
+    except Exception as e:
+        print(f"Failed to download error file {file}: {e}")
+
 
 # Extracting and cleaning up zip files
 for filename in tqdm(os.listdir(output_dir)):
