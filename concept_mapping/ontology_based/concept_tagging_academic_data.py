@@ -17,8 +17,11 @@ from concept_tagging_utilities import batch_items, get_concept_tagged_dict_from_
 from concept_tagging_utilities import prepare_json_for_academic_data
 
 
-
 if __name__ == "__main__":
+
+    # Unique identifier key name in the data
+    unique_key_in_data = 'corpusid'
+
     # enter the path of the jsonl files folder
     main_path_abstracts_data = ''
 
@@ -34,7 +37,7 @@ if __name__ == "__main__":
             for item in tqdm(reader):
                 all_data.append(item)
 
-        input_data_for_concept_tagger = prepare_json_for_academic_data(all_data)
+        input_data_for_concept_tagger = prepare_json_for_academic_data(all_data, unique_key_in_data=unique_key_in_data)
         print(f'Total number of records to be tagged in file are : {len(input_data_for_concept_tagger)}')
 
         # Group items into batches of 8
@@ -46,7 +49,7 @@ if __name__ == "__main__":
             output.append(get_concept_tagged_dict_from_tagger(batch))
 
         all_data_dict = {
-            item['corpusid']: item # unique identifier for academic data 
+            item[unique_key_in_data]: item # unique identifier for academic data 
             for item in all_data
         }
         

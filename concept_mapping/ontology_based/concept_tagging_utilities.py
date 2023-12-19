@@ -42,11 +42,11 @@ def get_concept_tagged_dict_from_tagger(input_json):
     return output
 
 
-def prepare_json_for_academic_data(data_list):
+def prepare_json_for_academic_data(data_list, unique_key_in_data='corpusid'):
     output = []
     for item in tqdm(data_list, total=len(data_list)):
         temp_dict = {
-            'paper_id': item['corpusid'],
+            'paper_id': item[unique_key_in_data],
             'title': item.get('title', ''),
             'journal': '',
             'doc_type': '',
@@ -56,11 +56,11 @@ def prepare_json_for_academic_data(data_list):
     return output
 
 
-def prepare_json_for_patent_data(data_list):
+def prepare_json_for_patent_data(data_list, unique_key_in_data):
     output = []
     for item in tqdm(data_list, total=len(data_list)):
         temp_dict = {
-            'paper_id': item['generated_id'],
+            'paper_id': item[unique_key_in_data],
             'title': item.get('invention-title', ''),
             'journal': '',
             'doc_type': '',
@@ -83,3 +83,24 @@ def prepare_json_for_finance_data(data_list):
         }
         output.append(temp_dict)
     return output
+
+
+def convert_finance_csv_to_jsonl(
+    df, unique_key_column, long_description_column,
+    short_description_column, file_path_to_save_to
+):
+    output = []
+    for row_idx, row in tqdm(df.iterrows(), total=df.shape[0]):
+        temp_dict = {
+            'unique_id': row[unique_key_column],
+            'long_description': row[long_description_column],
+            'short_description': row[short_description_column]
+        }
+
+        output.append(temp_dict)
+    
+    with jsonlines.open(file_path_to_save_to, 'w') as writer:
+        for item in output:
+            writer.write(item)
+    
+    return
