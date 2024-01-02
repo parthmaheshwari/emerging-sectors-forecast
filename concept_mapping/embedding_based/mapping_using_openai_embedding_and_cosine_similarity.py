@@ -110,6 +110,9 @@ def select_topics_to_be_mapped(inp_topic_names, inp_topic_indices, inp_topic_sco
     return selected
 
 if __name__ == "__main__":
+    OPENAI_ACCESS_KEY = ""
+    openai.api_key = OPENAI_ACCESS_KEY
+
     # load the research data 
     research_topics = json.load(open('research topic json file', 'r'))
 
