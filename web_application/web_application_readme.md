@@ -8,16 +8,13 @@ We created a simple user friendly web application based on Streamlit and Azure C
 We are currently working on finding a suitable way to host the application as a full fledged website. Right now, we are just deploying a Streamlit application. The application can be accessed at : [WebApp]()
 
 ## Database 
-We are using Azure CosmosDB database for the web application. Publications database (just computer science field of study) and companies and investment data (just for technology field) have been ported to Azure CosmosDB. We are currently in the process of porting patents data from USPTO. Below is the schema for the companies, investments and academic data. 
+We are using Azure CosmosDB database for the web application. We have incorporated databases for publications (focusing on the computer science field), companies and investments (specifically in the technology sector), and patents data from the USPTO. The schemas for companies, investments, academic, and patents data are as follows:
 
 #### Companies Data Schema
 #### Investments Data Schema
 #### Academic Data Schema
 #### Patents Data Schema
-- Coming soon. 
-
-In comning weeks, we will integrate the patents data into the web application too.
-
+- Recently integrated, providing detailed information from USPTO. 
 
 ## Methodology
 1. User selects one or multiple interesting concepts from the dropdown

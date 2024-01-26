@@ -1,6 +1,6 @@
 import datetime
 import os
-import config
+#import config
 import random
 import json
 import pandas as pd
@@ -9,6 +9,7 @@ import azure.cosmos.cosmos_client as cosmos_client
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 
@@ -18,6 +19,9 @@ ALL_ACADEMIC_CONCEPTS_IDS = set([i.strip() for i in open('../data/all_academic_c
 
 # loading concepts used in finance for effecient query
 ALL_FINANCE_CONCEPTS_IDS = set([i.strip() for i in open('../data/all_finance_openalex_concept_ids.txt').readlines()])
+
+# loading concepts used in patents for effecient query
+ALL_PATENTS_CONCEPTS_IDS = set([i.strip() for i in open('../data/all_patent_concept_ids.txt').readlines()])
 
 
 CONCEPTID2NAME = json.load(open('../data/openalex_concept_id_to_name_mapping.json', 'r'))
@@ -32,7 +36,7 @@ SUGGESTIONS_FOR_INPUT = [i.strip() for i in list(CONCEPTNAME2ID.keys())] #[i.str
 
 AZURE_FINANCE_SETTINGS = json.load(open('../data/azure_api_details_finance.json', 'r'))
 AZURE_ACADEMIC_SETTINGS = json.load(open('../data/azure_api_details_academic.json', 'r'))
-
+AZURE_PATENTS_SETTINGS= json.load(open('../data/azure_api_details_patents.json', 'r'))
 
 
 # Cosmos DB client
@@ -53,6 +57,12 @@ def get_azure_academic_containers(client, settings):
     academic_db = client.get_database_client(settings['database_id'])
     container_academic = academic_db.get_container_client(settings['container_id'])
     return academic_db, container_academic
+
+def get_azure_patents_containers(client, settings):
+    patents_db = client.get_database_client(settings['database_id'])
+    container_patents = patents_db.get_container_client(settings['container_id'])
+    return patents_db, container_patents
+
 
 
 def no_commas(number):
@@ -83,8 +93,10 @@ def get_finance_data(concept_id_list, container_companies, container_investments
     company_conditions = " OR ".join([f"ARRAY_CONTAINS(c.openalex_concept_ids, {int(concept_id)})" for concept_id in concept_id_list])
     company_query = f"""
         SELECT c.id as id,
-            c.company_name AS company_name,
-            c.openalex_concepts AS openalex_concepts
+        c.year as year,
+        c.company_name AS "company name",
+               c.investee_company_long_business_description as "description",
+            c.openalex_concepts AS "openalex concepts"
         FROM companies c 
         WHERE {company_conditions}
         """
@@ -102,12 +114,12 @@ def get_finance_data(concept_id_list, container_companies, container_investments
         investments_conditions =  ', '.join([f"'{id_}'" for id_ in company_ids])
         investment_query = f"""
         SELECT i.investment_year AS year, 
-            i.deal_rank_value_usd_millions AS deal_rank_value_usd_millions, 
-            i.investor_equity_total_usd_millions AS investor_equity_total_usd_millions, 
-            i.disclosed_fund_equity_contribution_usd_millions AS disclosed_fund_equity_contribution_usd_millions,
-            i.round_equity_total_usd_millions AS round_equity_total_usd_millions,
-            i.disclosed_debt_contribution_usd_millions AS disclosed_debt_contribution_usd_millions,
-            i.deal_value_usd_millions AS deal_value_usd_millions
+            i.deal_rank_value_usd_millions AS "deal rank value(usd, millions)", 
+            i.investor_equity_total_usd_millions AS "investor equity total(usd, millions)", 
+            i.disclosed_fund_equity_contribution_usd_millions AS "disclosed fund equity contribution(usd, millions)",
+            i.round_equity_total_usd_millions AS "round equity total(usd, millions)",
+            i.disclosed_debt_contribution_usd_millions AS "disclosed debt contribution(usd, millions)",
+            i.deal_value_usd_millions AS "deal value(usd, millions)"
         FROM investments i
         WHERE i.company_id IN ({investments_conditions})
         """
@@ -119,34 +131,39 @@ def get_finance_data(concept_id_list, container_companies, container_investments
     else:
         company_items = [
             {
-                'id': '',
-                'company_name': '',
-                'company_ids': '',
-                'openalex_concepts': ''
+                'company name': '',
+                'openalex concepts': '',
+                'description': '',
             }
         ]
         investment_items = [
             {
                 'year': 2021,
-                'deal_rank_value_usd_millions': 0,
-                'investor_equity_total_usd_millions': 0, 
-                'disclosed_fund_equity_contribution_usd_millions': 0,
-                'round_equity_total_usd_millions': 0,
-                'disclosed_debt_contribution_usd_millions': 0,
-                'deal_value_usd_millions': 0
+                'deal rank value(usd, millions)': 0,
+                'investor equity total(usd, millions)': 0, 
+                'disclosed fund equity contribution(usd, millions)': 0,
+                'round equity total(usd, millions)': 0,
+                'disclosed debt contribution(usd, millions)': 0,
+                'deal value(usd, millions)': 0
             }
         ]
     print('Total investment datapoints fetched are : {}'.format(len(investment_items)))
+
+    # company df
+    df_company = pd.DataFrame.from_dict(company_items)
+    company_count_by_year = df_company.groupby('year').size().reset_index(name='company count')
+    print(df_company.head())
+    
+    #investment df
     df = pd.DataFrame.from_dict(investment_items)
     print(df.shape)
     if df.shape[0] > 0:
         df = df.groupby('year').sum().reset_index()
+        df = df.merge(company_count_by_year, on='year', how='left')
+        df['company count'] = df['company count'].fillna(0).astype(int)
     print(df.shape)
     print(df.head())
 
-    # company df
-    df_company = pd.DataFrame.from_dict(company_items)
-    print(df_company.head())
     return df, df_company
 
 
@@ -157,9 +174,9 @@ def get_academic_data(concept_id_list, container):
 
     academic_query = f"""
     SELECT p.year as year,
-        p.referencecount as referencecount,
-        p.citationcount as citationcount,
-        p.influentialcitationcount as influentialcitationcount
+        p.referencecount as "academic reference count",
+        p.citationcount as "academic citations count",
+        p.influentialcitationcount as "academic influential citations count"
     FROM research_paper p
     WHERE (p.year >= 2000) AND ({academic_conditions}) 
     """
@@ -171,7 +188,7 @@ def get_academic_data(concept_id_list, container):
     print('Total academic data points are : {} '.format(len(academic_items)))
     
     df = pd.DataFrame.from_dict(academic_items)
-    df['publicationcount'] = [1 for i in range(df.shape[0])]
+    df['publication count'] = [1 for i in range(df.shape[0])]
     print(df.shape)
     if df.shape[0] > 0:
         df = df.groupby('year').sum().reset_index()
@@ -180,12 +197,73 @@ def get_academic_data(concept_id_list, container):
     return df
 
 
+
+def get_patents_data(concept_id_list, container):
+
+    concept_id_list = list(set(concept_id_list).intersection(ALL_PATENTS_CONCEPTS_IDS))
+    patents_conditions = " OR ".join([f"ARRAY_CONTAINS(p.openalex_concept_ids, {int(concept_id)})" for concept_id in concept_id_list])
+
+    patents_query = f"""
+    SELECT p.year as year,
+    p.citation_count as "patent citations count"
+    FROM tagged_patents_data p
+    WHERE ({patents_conditions})
+    """
+
+    patents_items = list(container.query_items(
+        query=patents_query,
+        enable_cross_partition_query=True
+    ))
+    print('Total patents data points are : {} '.format(len(patents_items)))
+    
+    df = pd.DataFrame.from_dict(patents_items)
+    df['patents count'] = [1 for i in range(df.shape[0])]
+    print(df.shape)
+    if df.shape[0] > 0:
+        df = df.groupby('year').sum().reset_index()
+
+    patents_query_with_concepts = f"""
+    SELECT p["invention-title"] as title,
+    p.abstract as abstract,
+    p.openalex_concepts as "openalex concepts"
+    FROM tagged_patents_data p
+    WHERE ({patents_conditions})
+    """
+    patents_items_with_concepts = list(container.query_items(
+        query=patents_query_with_concepts,
+        enable_cross_partition_query=True
+    ))
+    df_with_concepts = pd.DataFrame.from_dict(patents_items_with_concepts).dropna()
+    print(df.shape)
+    return df,df_with_concepts
+
+def apply_min_max_scaling(df, columns):
+    scaler = MinMaxScaler()
+    df_scaled = df.copy()
+    df_scaled[columns] = scaler.fit_transform(df[columns])
+    return df_scaled
+
+
 def create_plotly_graph_object(
-    sector, df1, df2,
-    df1_x_axis, df2_x_axis,
-    df1_y_axis, df2_y_axis,
+    sector, df1, df2, df3,
+    df1_x_axis, df2_x_axis, df3_x_axis,
+    df1_y_axis, df2_y_axis, df3_y_axis,min_max_scaled=False
 ):
     fig1 = go.Figure()
+
+
+    # Add the line chart for patents count
+    fig1.add_trace(
+        go.Scatter(
+            x=df3[df3_x_axis],
+            y=df3[df3_y_axis],
+            mode='lines+markers',
+            name=df3_y_axis,
+            yaxis='y3',  
+            line=dict(color='blue'),
+            # line=dict(shape='spline') 
+        )
+    )
 
     # Add the line chart for publication count
     fig1.add_trace(
@@ -218,22 +296,25 @@ def create_plotly_graph_object(
     
     # Customize the layout for fig1
     fig1.update_layout(
-        title='Dual Trend of {} Sector: {} with {} Over Years'.format(sector, df1_y_axis, df2_y_axis),
+        title='Comparative Trend of {} Sector: {}, {}, and {} Over Years'.format(sector, df1_y_axis, df2_y_axis, df3_y_axis),
         xaxis_title='Year',
         xaxis=dict(
             tickvals=x_axis_tick_values,
             tickmode='array',
             tickangle=45  # Rotate x-axis labels for better readability
         ),
-        yaxis=dict(title='{} (USD, Millions)'.format(df1_y_axis), side='left', showgrid=False),
-        yaxis2=dict(title='{} Counts'.format(df2_y_axis), side='right', overlaying='y', showgrid=False),
+
+        yaxis=dict(title='{}'.format(df1_y_axis), side='left',titlefont=dict(color='red'), tickfont=dict(color='red'), showgrid=False),
+        yaxis2=dict(title='{}'.format(df2_y_axis), side='right', overlaying='y',titlefont=dict(color='green'), tickfont=dict(color='green'), position=0.98, showgrid=False,showticklabels=not min_max_scaled),
+        yaxis3=dict(title='{}'.format(df3_y_axis), side='right', overlaying='y',titlefont=dict(color='blue'), tickfont=dict(color='blue'), position=1, showgrid=False),
         legend=dict(
             x=1.1,  # Adjust the position of the legend to the side
             y=0.5,
             traceorder='normal',
-            font=dict(family='Arial', size=12),
+            font=dict(family='Arial', size=10),
         ),
         height=400,  # Adjust the height as needed
+        width=1600
     )
     return fig1
 
