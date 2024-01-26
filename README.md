@@ -58,8 +58,7 @@ To extract patent data spanning from 2005 to 2023, follow these steps using the 
 1. **corpusid** : unique identifier for each paper
 2. **title** : title of the research paper
 3. **abstract** : abstract of the research paper
-4. **fieldsOfStudy** : a list of high level academic categories associated with paper; categorical understanding of the paper's academic domain. For e.g., Computer Science, Biology, Mathematics etc.
-5. **s2FieldsOfStudy** : list of academic categories for each paper, using external or internal classifiers.
+4. **s2FieldsOfStudy** : list of academic categories for each paper, using external or internal classifiers. The source can be the trained model or the original conference where the paper was submitted.
 
 For the **abstract** and **title** fields standard preprocessing was applied which involved removing extra whitespaces, urls, numbers and special symbols.
 
