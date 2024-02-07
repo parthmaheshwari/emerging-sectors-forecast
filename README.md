@@ -1,4 +1,4 @@
-# Predicting Funding Flows in Public and Private Markets
+# [Predicting Funding Flows in Public and Private Markets](https://michiganstate-my.sharepoint.com/:p:/r/personal/singhku2_msu_edu/Documents/Attachments/POSTER%20PPT%20CAPSTONE.pptx?d=wcf8ca6adbd164c2ba86f452c96bdd22d&csf=1&web=1&e=SVeqT1)
 
 ## Overview
 This GitHub repository contains the culmination of months of intensive research, analysis, and collaboration by a team of four students pursuing their Master of Science in Data Science at Michigan State University under the expert guidance of Professor Mohammad Ghassemi.
