@@ -11,20 +11,6 @@
 ![Alt text](Screenshots/homepage/5.png?raw=true "5")
 
 
-# Explore
-
-![Alt text](Screenshots/explore/1.png?raw=true "1")
-
-![Alt text](Screenshots/explore/2.png?raw=true "2")
-
-![Alt text](Screenshots/explore/3.png?raw=true "3")
-
-![Alt text](Screenshots/explore/4.png?raw=true "4")
-
-![Alt text](Screenshots/explore/5.png?raw=true "5")
-
-![Alt text](Screenshots/explore/6.png?raw=true "6")
-
 # Sectors
 
 ![Alt text](Screenshots/sectors/1.png?raw=true "1")
@@ -42,6 +28,22 @@
 ![Alt text](Screenshots/sectors/7.png?raw=true "7")
 
 ![Alt text](Screenshots/sectors/8.png?raw=true "8")
+
+
+# Explore
+
+![Alt text](Screenshots/explore/1.png?raw=true "1")
+
+![Alt text](Screenshots/explore/2.png?raw=true "2")
+
+![Alt text](Screenshots/explore/3.png?raw=true "3")
+
+![Alt text](Screenshots/explore/4.png?raw=true "4")
+
+![Alt text](Screenshots/explore/5.png?raw=true "5")
+
+![Alt text](Screenshots/explore/6.png?raw=true "6")
+
 
 # Trends
 
